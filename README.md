@@ -1,56 +1,162 @@
-# RV-AI Agentic Interview mentor
-
-**Welcome to the RV-AI Mock Interview App!**  
-This project is designed to help developers enhance their skills through AI-driven mock interviews, providing real-time feedback to simulate a realistic interview experience.
-
-## Overview
-The RV-AI Mock Interview App allows users to practice technical and behavioral interview questions in an interactive environment. The app generates custom questions based on user preferences and delivers instant feedback on answers to help users improve their interview skills.
-
-## Features
-- **Personalized AI-Generated Questions**: Receive interview questions tailored to your profile and preferences for a more targeted practice experience.
-- **Secure Authentication**: Ensure safe and seamless login and signup processes powered by Clerk.
-- **Instant Feedback**: Get real-time insights and suggestions on your answers using Gemini AI to improve your performance.
-- **Responsive Design**: Enjoy an intuitive and user-friendly interface built with React, adaptable to any device.
-- **Robust Data Management**: Safeguard and track user data and interview history with Drizzle ORM for a seamless experience.
 
 
-## Technologies Used
-- **[Next.js](https://nextjs.org/)**: Framework for server-rendered React applications.
-- **[React](https://reactjs.org/)**: JavaScript library for building user interfaces.
-- **[Drizzle ORM](https://drizzle.team/)**: ORM for managing database interactions.
-- **[Gemini AI](https://gemini.ai/)**: AI API for generating interview questions and analyzing answers.
-- **[Clerk](https://clerk.dev/)**: Authentication and user management.
+---
 
-## Getting Started
+#  Lakshya AI – Intelligent Interview Mocker
 
-### Installation
-To get started with the project, follow these steps:
+Lakshya AI is an **AI-powered interview preparation platform** designed to help candidates confidently prepare for **technical and behavioral interviews**.
+It simulates real interview scenarios, analyzes responses (including facial cues), and provides **instant, actionable AI feedback** to help users improve with every attempt.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/rv-ai-mock-interview-app.git
-   ```
+---
 
-2. Navigate to the project directory:
-   ```bash
-   cd rv-ai-mock-interview-app
-   ```
+##  Preview
 
-3. Install the dependencies:
-   ```bash
-   npm install
-   ```
+<img width="1465" height="825" alt="Lakshya AI Preview" src="https://github.com/user-attachments/assets/e97491be-3b83-4958-b977-48498e32b8f9" />
 
-### Usage
-1. Start the development server:
-   ```bash
-   npm run dev
-   ```
+---
 
-2. Open your browser and visit [http://localhost:3000](http://localhost:3000) to see the app in action!
+##  Features
 
+* **AI Mock Interviews**
+  Generates dynamic, role-specific interview questions using **Google Gemini AI**.
 
-For more details, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md).
+* **Video & Facial Analysis**
+  Real-time face detection and confidence analysis powered by **face-api.js**.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+* **Speech-to-Text Support**
+  Answer interviews naturally using voice; built-in speech recognition converts speech to text.
+
+* **Instant AI Feedback**
+  Get immediate ratings (1–10) and detailed feedback for every response.
+
+* **Learning Hub**
+  Curated free resources for **DSA, System Design, Aptitude, and Interview Prep**.
+
+* **Secure Authentication**
+  User authentication and profile management handled via **Clerk**.
+
+* **Progress Tracking**
+  Interview history, scores, and performance metrics stored in the database.
+
+---
+
+##  Tech Stack
+
+* **Framework:** Next.js 14 (App Router)
+* **Styling:** Tailwind CSS + shadcn/ui
+* **AI Model:** Google Gemini API
+* **Authentication:** Clerk
+* **Database:** PostgreSQL (via Drizzle ORM)
+* **Video Analysis:** face-api.js
+* **Icons:** Lucide React
+
+---
+
+##  Getting Started
+
+Follow the steps below to run the project locally.
+
+---
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/your-username/lakshya-ai.git
+cd lakshya-ai
+```
+
+---
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+---
+
+### 3️⃣ Configure Environment Variables
+
+Create a `.env.local` file in the project root and add the following:
+
+```env
+# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+CLERK_SECRET_KEY=sk_test_...
+
+# Google Gemini AI
+NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key
+
+# Database (PostgreSQL - Neon / Supabase / Local)
+DATABASE_URL=postgresql://user:password@host:port/dbname
+```
+
+---
+
+### 4️⃣ Download Face API Models
+
+Facial analysis requires model weights from `face-api.js`.
+
+1. Download the models from:
+   [https://github.com/justadudewhohacks/face-api.js/tree/master/weights](https://github.com/justadudewhohacks/face-api.js/tree/master/weights)
+2. Place all files inside:
+
+```
+public/models/
+```
+
+---
+
+### 5️⃣ Run the Development Server
+
+```bash
+npm run dev
+```
+
+Open your browser and navigate to:
+👉 **[http://localhost:3000](http://localhost:3000)**
+
+---
+
+## 🗄️ Database Setup (Drizzle ORM)
+
+### Push Schema to Database
+
+```bash
+npx drizzle-kit push
+```
+
+### Open Drizzle Studio
+
+```bash
+npx drizzle-kit studio
+```
+
+---
+
+## 📌 Notes
+
+* This project uses **client-side AI interactions** for interview flow.
+* Make sure your **camera and microphone permissions** are enabled for full functionality.
+* Suitable for **students, job seekers, and professionals** preparing for interviews.
+
+---
+
+## 📄 License
+
+This project is intended for **educational and personal use**.
+Feel free to fork and extend it.
+
+---
+
+## 🙌 Acknowledgements
+
+* Google Gemini API
+* Clerk Authentication
+* face-api.js
+* Next.js & Tailwind CSS ecosystem
+
+---
+
