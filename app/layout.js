@@ -22,45 +22,47 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://www.RVai.com'),
+  // Update this URL once you deploy to Vercel (e.g., https://lakshya-ai.vercel.app)
+  metadataBase: new URL('https://lakshya-ai.vercel.app'),
   title: {
-    default: 'RV AI - AI-Powered Interview Preparation',
-    template: '%s | RV AI'
+    default: 'Lakshya AI - Intelligent Interview Preparation',
+    template: '%s | Lakshya AI'
   },
-  description: 'Elevate your interview skills with AI-powered mock interviews. Get personalized coaching, real-time feedback, and boost your confidence.',
+  description: 'Master your technical and behavioral interviews with Lakshya AI. Real-time feedback, AI-powered mocks, and confidence building.',
   keywords: [
     'AI interview preparation', 
     'mock interviews', 
-    'interview coaching', 
-    'career development', 
-    'job interview help'
+    'Lakshya AI', 
+    'career coaching', 
+    'job interview help',
+    'AI interview mocker'
   ],
-  authors: [{ name: 'RV AI Team' }],
-  creator: 'RV AI',
-  publisher: 'RV AI',
+  authors: [{ name: 'Lakshya AI Team' }],
+  creator: 'Lakshya AI',
+  publisher: 'Lakshya AI',
   
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://RVai-eta.vercel.app/',
-    title: 'RV AI - AI-Powered Interview Preparation',
-    description: 'Elevate your interview skills with AI-powered mock interviews. Get personalized coaching, real-time feedback, and boost your confidence.',
-    siteName: 'RV AI',
+    url: 'https://lakshya-ai.vercel.app/',
+    title: 'Lakshya AI - Intelligent Interview Preparation',
+    description: 'Master your technical and behavioral interviews with Lakshya AI. Real-time feedback, AI-powered mocks, and confidence building.',
+    siteName: 'Lakshya AI',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'RV AI - Revolutionizing Interview Preparation'
+        alt: 'Lakshya AI - Your Path to Success'
       }
     ]
   },
   
   twitter: {
     card: 'summary_large_image',
-    title: 'RV AI - AI-Powered Interview Preparation',
-    description: 'Elevate your interview skills with AI-powered mock interviews. Get personalized coaching, real-time feedback, and boost your confidence.',
-    creator: '@RVAI',
+    title: 'Lakshya AI - Intelligent Interview Preparation',
+    description: 'Master your technical and behavioral interviews with Lakshya AI. Real-time feedback, AI-powered mocks, and confidence building.',
+    creator: '@LakshyaAI',
     images: ['/twitter-image.png']
   },
   
@@ -99,7 +101,7 @@ export default function RootLayout({ children }) {
             font-sans
           `}
         >
-          {/* Skip to Content Button (Updated to use your Primary Pink Color) */}
+          {/* Skip to Content Button */}
           <a 
             href="#main-content" 
             className="
