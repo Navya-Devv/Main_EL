@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* poppins */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background: 210 15% 97%;
+    --foreground: 210 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+
+    /* Primary: Teal */
+    --primary: 174 65% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Soft Charcoal */
+    --secondary: 210 15% 90%;
+    --secondary-foreground: 210 20% 20%;
+
+    --muted: 210 15% 90%;
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 174 40% 92%;
+    --accent-foreground: 174 65% 25%;
+
+    /* Destructive */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 210 15% 85%;
+    --input: 210 15% 85%;
+    --ring: 174 65% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Backgrounds */
+    --background: 210 25% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 25% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 25% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary: Brighter Teal for dark mode */
+    --primary: 174 70% 45%;
+    --primary-foreground: 210 20% 10%;
+
+    /* Secondary */
+    --secondary: 210 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 20% 15%;
+    --muted-foreground: 210 10% 65%;
+
+    --accent: 174 30% 18%;
+    --accent-foreground: 174 70% 45%;
+
+    /* Destructive */
+    --destructive: 0 60% 35%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 210 20% 15%;
+    --input: 210 20% 15%;
+    --ring: 174 70% 45%;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
