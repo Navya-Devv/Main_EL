@@ -47,6 +47,7 @@ function Header() {
     { href: "/dashboard", label: "Dashboard" },
     { href: "/how-it-works", label: "How It Works" },
     { href: "/about-us", label: "About Us" },
+    { href: "/dashboard/placement", label: "Placement Predictor" },
   ];
 
   return (
