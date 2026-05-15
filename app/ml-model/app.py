@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import pandas as pd
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}}) # ALLOW ALL ORIGINS
 
 # ---------------------------------------------------------
 # LOAD MODEL
@@ -17,37 +19,12 @@ except Exception as e:
     model = None
 
 # ---------------------------------------------------------
-# MANUAL CORS (CORRECT + MODERN)
-# ---------------------------------------------------------
-@app.after_request
-def add_cors_headers(response):
-    origin = request.headers.get("Origin")
-
-    allowed_origins = [
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:3001",
-        "http://127.0.0.1:3001",
-        "http://localhost:3002",
-        "http://127.0.0.1:3002",
-        "http://localhost:3003",
-        "http://127.0.0.1:3003"
-    ]
-
-    # Permissive CORS for deployment testing
-    response.headers["Access-Control-Allow-Origin"] = "*"
-
-    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
-    response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
-    response.headers["Access-Control-Allow-Credentials"] = "true"
-
-    return response
-
-# ---------------------------------------------------------
 # PREDICTION ENDPOINT
 # ---------------------------------------------------------
 @app.route("/predict", methods=["POST", "OPTIONS"])
 def predict():
+    print(f"🚀 [API] {request.method} request received from {request.remote_addr}")
+
 
     # Preflight request
     if request.method == "OPTIONS":
