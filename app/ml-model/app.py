@@ -34,8 +34,8 @@ def add_cors_headers(response):
         "http://127.0.0.1:3003"
     ]
 
-    if origin in allowed_origins:
-        response.headers["Access-Control-Allow-Origin"] = origin
+    # Permissive CORS for deployment testing
+    response.headers["Access-Control-Allow-Origin"] = "*"
 
     response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
     response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"

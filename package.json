@@ -28,6 +28,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.35.3",
+    "encoding": "^0.1.13",
     "face-api.js": "^0.22.2",
     "lucide-react": "^0.453.0",
     "moment": "^2.30.1",
