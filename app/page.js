@@ -179,6 +179,7 @@ export default function ResourcesPage() {
           icon: <BarChart size={24} />,
           stats: { rating: "4.6", community: "65K+", progress: 85 },
           links: [
+            { name: "Naukri Aptitude", url: "https://www.naukri.com/campus/career-guidance/quantitative-aptitude-questions-answers" },
             { name: "IndiaBix", url: "https://www.indiabix.com/" },
             { name: "Freshersworld", url: "https://www.freshersworld.com/" },
             { name: "Aptitude Prep", url: "https://www.aptitudeprep.com/" },
@@ -193,6 +194,24 @@ export default function ResourcesPage() {
             { name: "GATE Overflow", url: "https://gateoverflow.in/" },
             { name: "Brilliant (Free)", url: "https://brilliant.org/" },
             { name: "NPTEL", url: "https://nptel.ac.in/" },
+          ],
+        },
+      ],
+    },
+    softskills: {
+      label: "Soft Skills",
+      icon: <Users size={20} />,
+      description: "Enhance your personality, communication, and professional etiquette",
+      resources: [
+        {
+          title: "Soft Skills Assessment",
+          description: "Test your soft skills with professional assessments and get detailed feedback",
+          icon: <Lightbulb size={24} />,
+          stats: { rating: "4.9", community: "30K+", progress: 95 },
+          links: [
+            { name: "Skillogy Assessments", url: "https://skillogy.com/assessments/" },
+            { name: "Communication Skills", url: "https://www.mindtools.com/" },
+            { name: "Professional Ethics", url: "https://www.toastmasters.org/" },
           ],
         },
       ],
@@ -222,17 +241,6 @@ export default function ResourcesPage() {
             { name: "Coursera (Audit)", url: "https://www.coursera.org/" },
             { name: "edX (Audit)", url: "https://www.edx.org/" },
             { name: "Swayam", url: "https://swayam.gov.in/" },
-          ],
-        },
-        {
-          title: "Communication",
-          description: "Free resources to develop confident presentation and professional communication",
-          icon: <Lightbulb size={24} />,
-          stats: { rating: "4.6", community: "33K+", progress: 70 },
-          links: [
-            { name: "Toastmasters", url: "https://www.toastmasters.org/" },
-            { name: "TED Talks", url: "https://www.ted.com/" },
-            { name: "MindTools", url: "https://www.mindtools.com/" },
           ],
         },
       ],

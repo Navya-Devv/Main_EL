@@ -71,13 +71,21 @@ function AddNewInterview() {
     setLoading(true);
   
     const inputPrompt = `Job position: ${jobPosition}, Job Description: ${jobDescription}, Years of Experience: ${jobExperience}.
-    Generate 5 interview questions and answers in JSON format.`;
+    Based on the job position, job description, and years of experience, please provide 5 interview questions along with their answers in JSON format.
+    The response should be a JSON array of objects, where each object has "question" and "answer" fields.
+    Example: [{"question": "What is React?", "answer": "React is a JavaScript library for building user interfaces."}]`;
   
     try {
       const result = await chatSession.sendMessage(inputPrompt);
       const responseText = await result.response.text();
       
-      const cleanedResponse = responseText.replace(/```json\n?|```/g, '').trim();
+      // Better JSON extraction
+      let cleanedResponse = responseText;
+      if (responseText.includes('```')) {
+        cleanedResponse = responseText.split(/```(?:json)?/)[1].split('```')[0].trim();
+      } else {
+        cleanedResponse = responseText.trim();
+      }
       
       const mockResponse = JSON.parse(cleanedResponse);
       
@@ -96,7 +104,7 @@ function AddNewInterview() {
       router.push(`dashboard/interview/${res[0]?.mockId}`);
     } catch (error) {
       console.error("Error generating interview:", error);
-      toast.error('Failed to generate interview questions.');
+      toast.error('Failed to generate interview questions. Please try again.');
     } finally {
       setLoading(false);
     }

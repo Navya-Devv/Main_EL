@@ -1,17 +1,13 @@
-/*
-  Updated to use model: "gemini-2.5-flash" as requested.
-*/
-const {
+import {
   GoogleGenerativeAI,
   HarmCategory,
   HarmBlockThreshold,
-} = require("@google/generative-ai");
+} from "@google/generative-ai";
 
 const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
-  // Using the specific model version you requested
   model: "gemini-2.5-flash",
 });
 
