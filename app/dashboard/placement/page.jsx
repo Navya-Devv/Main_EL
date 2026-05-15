@@ -58,7 +58,8 @@ export default function PlacementPredictor() {
     setFeedback("");
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/predict', {
+      const backendUrl = 'https://main-el-t5dp.onrender.com';
+      const response = await fetch(`${backendUrl}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
