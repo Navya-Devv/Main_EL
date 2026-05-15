@@ -21,16 +21,18 @@ except Exception as e:
 # ---------------------------------------------------------
 # PREDICTION ENDPOINT
 # ---------------------------------------------------------
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"status": "Server is live and running!"})
+
 @app.route("/predict", methods=["POST", "OPTIONS"])
 def predict():
     print(f"🚀 [API] {request.method} request received from {request.remote_addr}")
 
-
-    # Preflight request
+    # Preflight request handled by flask-cors automatically, 
+    # but keeping this for safety if needed.
     if request.method == "OPTIONS":
-        response = jsonify({"status": "ok"})
-        response.status_code = 200
-        return response
+        return jsonify({"status": "ok"}), 200
 
     if not model:
         return jsonify({"error": "Model not active"}), 500
@@ -39,17 +41,29 @@ def predict():
         data = request.json
         print("📩 Received:", data)
 
+        def safe_float(val, default=0.0):
+            try:
+                return float(val) if val and str(val).strip() else default
+            except:
+                return default
+
+        def safe_int(val, default=0):
+            try:
+                return int(val) if val and str(val).strip() else default
+            except:
+                return default
+
         input_data = pd.DataFrame([{
-            "CGPA": float(data.get("cgpa", 0)),
-            "Internships": int(data.get("internships", 0)),
-            "Projects": int(data.get("projects", 0)),
-            "Workshops/Certifications": int(data.get("workshops", 0)),
-            "AptitudeTestScore": float(data.get("aptitudeScore", 0)),
-            "SoftSkillsRating": float(data.get("softSkills", 0)),
-            "ExtracurricularActivities": int(data.get("extracurricular", 0)),
-            "PlacementTraining": int(data.get("placementTraining", 0)),
-            "SSC_Marks": float(data.get("sscMarks", 0)),
-            "HSC_Marks": float(data.get("hscMarks", 0))
+            "CGPA": safe_float(data.get("cgpa")),
+            "Internships": safe_int(data.get("internships")),
+            "Projects": safe_int(data.get("projects")),
+            "Workshops/Certifications": safe_int(data.get("workshops")),
+            "AptitudeTestScore": safe_float(data.get("aptitudeScore")),
+            "SoftSkillsRating": safe_float(data.get("softSkills")),
+            "ExtracurricularActivities": safe_int(data.get("extracurricular")),
+            "PlacementTraining": safe_int(data.get("placementTraining")),
+            "SSC_Marks": safe_float(data.get("sscMarks")),
+            "HSC_Marks": safe_float(data.get("hscMarks"))
         }])
 
         if "features" in artifact:
